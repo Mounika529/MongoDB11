@@ -1,0 +1,44 @@
+import com.mongodb.DB;
+import com.mongodb.DBCollection;
+import com.mongodb.DBCursor;
+import com.mongodb.MongoClient;
+
+public class MongoD{
+	
+	public static void main(String[] args) {
+	
+		try {
+			
+		
+		@SuppressWarnings("resource")
+		MongoClient mongoclient = new MongoClient("localhost",27017);
+	
+		@SuppressWarnings("deprecation")
+		DB db = mongoclient.getDB("school");
+		System.out.println("MongoDB Connected");
+		
+		DBCollection coll = db.getCollection("students");
+		DBCursor cursor = coll.find();
+		System.out.println("Inner");
+		while(cursor.hasNext()) {
+			@SuppressWarnings("unused")
+			int i=1;
+			System.out.println(cursor.next());
+			i++;
+		}
+		}catch(Exception e) {
+			System.out.println(e);
+		}
+		}
+
+		
+		
+		
+		
+		
+		
+	}
+
+	
+
+
